@@ -1,0 +1,220 @@
+/*You can add global styles to this file, and also import other style files*/
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.tabs-nav {
+  display: flex;
+}
+.tab-nav {
+  min-height: 40px;
+    margin-left: 3px;
+    padding: 13px 27px;
+    font-size: 20px;
+    color: #bdbdbd;
+    background-color: #3f4a54;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-sizing: border-box;
+}
+.tab-nav:first-of-type {
+  margin-left: 0;
+}
+.tab-nav:hover {
+  cursor: pointer;
+}
+.tab-nav.active 
+{
+  color: #cc9f2c;
+  background-color: #000000;
+  font-size: 20px;
+}
+.tab-nav.active:hover 
+{
+  cursor: default;
+}
+.tab {
+  display: none;
+}
+.tab.active {
+  display: block;
+}
+/*Filters*/
+.filterBtnsContainer 
+{
+  padding: 25px 25px 5px;
+  font-size: 0;
+  background-color: #000000;
+  box-sizing: border-box;
+}
+.ticker-instrument.filter-show {
+  display: flex;
+}
+.filter-btn {
+  margin-left: 10px;
+  padding: 10px;
+  font-size: 13px;
+  color: #bdbdbd;
+  background-color: transparent;
+  border: 1px solid #525a60;
+  border-radius: 10px;
+  outline: none;
+}
+.filter-btn:hover {
+  border: 1px solid #ffffff;
+  cursor: pointer;
+}
+.filter-btn.active-filter {
+  border: 1px solid #cc9f2c;
+}
+.filter-btn.active-filter:hover {
+  cursor: default;
+}
+.ticker-scope {
+  display: block;
+  height: 635px;
+  padding: 20px 0;
+  overflow-y: auto;
+  background: #000000;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+.ticker-header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 500;
+  color: #6c7983;
+}
+.ticker-header div {
+  padding: 0 2px 10px;
+  text-align: left;
+  box-sizing: border-box;
+}
+.ticker-symbol {
+  width: 20%;
+  text-align: left;
+}
+.ticker-header .ticker-symbol {
+  padding-left: 30px;
+}
+.ticker-instrument .ticker-symbol {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 15px 15px 15px 30px;
+  box-sizing: border-box;
+}
+.ticker-full-name {
+  overflow: hidden;
+}
+.ticker-pair {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+.ticker-currencies-name {
+  margin: 0;
+  overflow: hidden;
+  font-size: 11px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.ticker-instrument[levels] .ticker-symbol:before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  width: 6px;
+  height: 6px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8.4 5.1'><g transform='translate(-1020.000000, -753.000000)'><polygon fill='rgb(108, 121, 131)' points='1024.2,758.1 1020,753.7 1020.7,753 1024.2,756.6 1027.7,753 1028.4,753.7'/></g></svg>");
+  background-repeat: no-repeat;
+  transform: rotate(270deg);
+}
+.ticker-instrument.selected-instrument[levels] .ticker-symbol:before {
+  left: 18px;
+  transform: rotate(0deg);
+}
+.ticker-instrument.expanded-instrument .ticker-symbol {
+  padding-left: 60px;
+  color: rgba(255, 255, 255, .6);
+}
+.ticker-instrument.expanded-instrument {
+  background: #333d46;
+}
+.ticker-header .ticker-spread,
+.ticker-instrument .ticker-spread {
+  width: 12%;
+}
+.ticker-volume {
+  width: 15%;
+}
+.ticker-volume.ask {
+  justify-content: flex-end;
+  padding-right: 30px;
+  text-align: right;
+}
+.ticker-price {
+  width: 18%;
+}
+.ticker-instrument .ticker-price.bid,
+.ticker-header .ticker-price.bid {
+  padding-left: 25px;
+}
+.ticker-instrument {
+  display: none;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #e8eaeb;
+  border-bottom: 2px solid #363f48;
+}
+.ticker-instrument[levels] {
+  cursor: pointer;
+}
+.ticker-instrument[level] {
+  display: none;
+}
+.ticker-instrument[level].filter-show.expanded-instrument {
+  display: flex;
+}
+.ticker-instrument ticker-field {
+  display: flex;
+  align-items: center;
+  padding: 15px 2px;
+  text-align: left;
+  box-sizing: border-box;
+}
+.ticker-instrument .ticker-price.bid,
+.ticker-instrument .ticker-price.ask {
+  position: relative;
+  flex-flow: row nowrap;
+}
+.ticker-instrument .up.ticker-price.ask:after,
+.ticker-instrument .up.ticker-price.bid:before {
+  content: "";
+  display: block;
+  width: 9px;
+  height: 9px;
+  background-image: url("data:image/svg+xml;utf8, <svg viewBox='0 0 9 9' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M3.68114 3.53406L1.78355 5.51257C1.53978 5.76697 1.13353 5.77234 0.884567 5.52332L0.598862 5.23474C0.352463 4.99109 0.352463 4.59265 0.598862 4.34656L4.07689 0.86853C4.3206 0.621948 4.71904 0.621948 4.96538 0.86853L8.44078 4.34656C8.68718 4.59021 8.68718 4.98865 8.44078 5.23474L8.15508 5.52332C7.90611 5.77234 7.49986 5.76697 7.25609 5.51257L5.35851 3.53406V8.3197C5.35851 8.49597 5.28679 8.65466 5.17076 8.76892C5.05742 8.88025 4.90178 8.94861 4.72948 8.94861H4.31017C3.96153 8.94861 3.68114 8.66833 3.68114 8.3197V3.53406Z' fill='rgb(27, 202, 164)'/></svg>");
+  background-repeat: no-repeat;
+}
+.ticker-instrument .down.ticker-price.ask:after,
+.ticker-instrument .down.ticker-price.bid:before {
+  content: "";
+  display: block;
+  width: 9px;
+  height: 9px;
+  background-image: url("data:image/svg+xml;utf8, <svg viewBox='0 0 9 9' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M3.68114 3.53406L1.78355 5.51257C1.53978 5.76697 1.13353 5.77234 0.884567 5.52332L0.598862 5.23474C0.352463 4.99109 0.352463 4.59265 0.598862 4.34656L4.07689 0.86853C4.3206 0.621948 4.71904 0.621948 4.96538 0.86853L8.44078 4.34656C8.68718 4.59021 8.68718 4.98865 8.44078 5.23474L8.15508 5.52332C7.90611 5.77234 7.49986 5.76697 7.25609 5.51257L5.35851 3.53406V8.3197C5.35851 8.49597 5.28679 8.65466 5.17076 8.76892C5.05742 8.88025 4.90178 8.94861 4.72948 8.94861H4.31017C3.96153 8.94861 3.68114 8.66833 3.68114 8.3197V3.53406Z' fill='rgb(255, 65, 145)'/></svg>");
+  background-repeat: no-repeat;
+  transform: rotate(180deg);
+}
+.ticker-instrument .down.ticker-price.bid:before,
+.ticker-instrument .up.ticker-price.bid:before {
+  position: absolute;
+  left: 10px;
+}
+.ticker-instrument .down.ticker-price.ask:after,
+.ticker-instrument .up.ticker-price.ask:after {
+  margin-left: 10px;
+}
